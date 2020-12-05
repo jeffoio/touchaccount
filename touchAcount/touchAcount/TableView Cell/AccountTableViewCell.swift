@@ -18,7 +18,6 @@ class AccountTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         self.roundView.layer.cornerRadius = 15
     }
 

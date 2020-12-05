@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F0F885C257803DB0031C2BB /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F885B257803DB0031C2BB /* BankViewController.swift */; };
+		1F66DBC92578C68D007E32F8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */; };
+		1F66DBCC2578D371007E32F8 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66DBCB2578D371007E32F8 /* Bank.swift */; };
 		1F88C78E2577E75D00ECCD0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C78D2577E75D00ECCD0E /* AppDelegate.swift */; };
 		1F88C7902577E75D00ECCD0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C78F2577E75D00ECCD0E /* SceneDelegate.swift */; };
 		1F88C7922577E75D00ECCD0E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C7912577E75D00ECCD0E /* MainViewController.swift */; };
@@ -16,10 +18,14 @@
 		1F88C79A2577E75E00ECCD0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F88C7982577E75E00ECCD0E /* LaunchScreen.storyboard */; };
 		1F88C7A82577E9FF00ECCD0E /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C7A62577E9FF00ECCD0E /* AccountTableViewCell.swift */; };
 		1F88C7A92577E9FF00ECCD0E /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F88C7A72577E9FF00ECCD0E /* AccountTableViewCell.xib */; };
+		1FBEDFF7257BA15A0078E8A7 /* CreateTableView_InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBEDFF5257BA15A0078E8A7 /* CreateTableView_InputCell.swift */; };
+		1FBEDFF8257BA15A0078E8A7 /* CreateTableView_InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FBEDFF6257BA15A0078E8A7 /* CreateTableView_InputCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F0F885B257803DB0031C2BB /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
+		1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		1F66DBCB2578D371007E32F8 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		1F88C78A2577E75D00ECCD0E /* touchAcount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = touchAcount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F88C78D2577E75D00ECCD0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F88C78F2577E75D00ECCD0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		1F88C79B2577E75E00ECCD0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F88C7A62577E9FF00ECCD0E /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		1F88C7A72577E9FF00ECCD0E /* AccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
+		1FBEDFF5257BA15A0078E8A7 /* CreateTableView_InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableView_InputCell.swift; sourceTree = "<group>"; };
+		1FBEDFF6257BA15A0078E8A7 /* CreateTableView_InputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTableView_InputCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0D60D0257B7EA6007174EF /* TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1F88C7A62577E9FF00ECCD0E /* AccountTableViewCell.swift */,
+				1F88C7A72577E9FF00ECCD0E /* AccountTableViewCell.xib */,
+				1FBEDFF5257BA15A0078E8A7 /* CreateTableView_InputCell.swift */,
+				1FBEDFF6257BA15A0078E8A7 /* CreateTableView_InputCell.xib */,
+			);
+			path = "TableView Cell";
+			sourceTree = "<group>";
+		};
 		1F88C7812577E75C00ECCD0E = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +84,10 @@
 				1F88C7A32577E7A300ECCD0E /* Supporting Files */,
 				1F88C7912577E75D00ECCD0E /* MainViewController.swift */,
 				1F0F885B257803DB0031C2BB /* BankViewController.swift */,
+				1F66DBCB2578D371007E32F8 /* Bank.swift */,
+				1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */,
 				1F88C7932577E75D00ECCD0E /* Main.storyboard */,
-				1F88C7A62577E9FF00ECCD0E /* AccountTableViewCell.swift */,
-				1F88C7A72577E9FF00ECCD0E /* AccountTableViewCell.xib */,
+				1F0D60D0257B7EA6007174EF /* TableView Cell */,
 				1F88C7962577E75E00ECCD0E /* Assets.xcassets */,
 				1F88C79B2577E75E00ECCD0E /* Info.plist */,
 			);
@@ -143,6 +163,7 @@
 			files = (
 				1F88C79A2577E75E00ECCD0E /* LaunchScreen.storyboard in Resources */,
 				1F88C7A92577E9FF00ECCD0E /* AccountTableViewCell.xib in Resources */,
+				1FBEDFF8257BA15A0078E8A7 /* CreateTableView_InputCell.xib in Resources */,
 				1F88C7972577E75E00ECCD0E /* Assets.xcassets in Resources */,
 				1F88C7952577E75D00ECCD0E /* Main.storyboard in Resources */,
 			);
@@ -155,11 +176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F66DBC92578C68D007E32F8 /* CreateAccountViewController.swift in Sources */,
 				1F88C7922577E75D00ECCD0E /* MainViewController.swift in Sources */,
 				1F88C7A82577E9FF00ECCD0E /* AccountTableViewCell.swift in Sources */,
 				1F88C78E2577E75D00ECCD0E /* AppDelegate.swift in Sources */,
 				1F0F885C257803DB0031C2BB /* BankViewController.swift in Sources */,
+				1FBEDFF7257BA15A0078E8A7 /* CreateTableView_InputCell.swift in Sources */,
 				1F88C7902577E75D00ECCD0E /* SceneDelegate.swift in Sources */,
+				1F66DBCC2578D371007E32F8 /* Bank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="KGk-i7-Jjw" customClass="AccountTableViewCell" customModule="touchAcount" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="35" id="KGk-i7-Jjw" customClass="AccountTableViewCell" customModule="touchAcount" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -30,14 +30,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="월세                       ㅇㅇㅇㅇ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igW-3f-tZA">
-                                        <rect key="frame" x="39.5" y="0.0" width="101.5" height="14.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="월세" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igW-3f-tZA">
+                                        <rect key="frame" x="39.5" y="0.0" width="16" height="14.5"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="9"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3333-04-4334471" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5C-hg-iUd">
-                                        <rect key="frame" x="149" y="0.0" width="103" height="14.5"/>
+                                        <rect key="frame" x="63.5" y="0.0" width="188.5" height="14.5"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.16078431369999999" green="0.14117647059999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="ZmA-5d-3ef" firstAttribute="top" secondItem="MEs-2A-m0p" secondAttribute="bottom" constant="-10" id="9uM-6x-DhH"/>
                     <constraint firstItem="ZmA-5d-3ef" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.85" id="A16-XO-RnD"/>
@@ -71,6 +71,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="bankImageView" destination="MEs-2A-m0p" id="1eU-k8-qaZ"/>
                 <outlet property="detailLabel" destination="igW-3f-tZA" id="xiJ-pH-59Y"/>

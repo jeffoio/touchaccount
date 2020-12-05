@@ -9,11 +9,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    var num = 3
     @IBOutlet weak var accountTableView: UITableView!
+    @IBOutlet weak var addAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewConfigure()
+        addAccountButton.layer.cornerRadius = 10
+    }
+    
+    func tableViewConfigure() {
         accountTableView.delegate = self
         accountTableView.dataSource = self
         let nib = UINib(nibName: "\(AccountTableViewCell.self)", bundle: nil)
@@ -21,30 +27,16 @@ class MainViewController: UIViewController {
         accountTableView.rowHeight = 65
     }
     
-    // This function is called before the segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // get a reference to the second view controller
-        //let secondViewController = segue.destination as! SecondViewController
-        
-        // set a variable in the second view controller with the data to pass
-        //secondViewController.receivedData = "hello"
-    }
-    @IBAction func showEditing(_ sender: UIBarButtonItem) {
+    @IBAction func editTableView(_ sender: UIBarButtonItem) {
         if accountTableView.isEditing {
             accountTableView.isEditing = false
-            editBarButton.title = "편집"
         } else {
             accountTableView.isEditing = true
-            editBarButton.title = "완료"
         }
     }
     
-    @IBAction func addAcount(_ sender: UIBarButtonItem) {
-    }
     
 }
-
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK:- Delegate
@@ -56,17 +48,35 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         UIPasteboard.general.string = cell.numberLabel.text!
         
         // Segue
-        self.performSegue(withIdentifier: "BankSegue", sender: self)
+        //self.performSegue(withIdentifier: "BankSegue", sender: self)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            num -= 1
+            accountTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//            if editingStyle == .delete {
+//                // Delete the row from the data source
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//            } else if editingStyle == .insert {
+//                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//            }
+//        }
+//
     
     //MARK:- DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return num
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = accountTableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as? AccountTableViewCell else { fatalError("Error  AccountTableViewCell Cell Init ")}
         return cell
     }
+    
 }
 
