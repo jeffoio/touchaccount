@@ -11,8 +11,8 @@ class AccountTableViewCell: UITableViewCell {
 
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var bankImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var holderLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
     override func awakeFromNib() {

@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var num = 3
+    var accounts: [Account] = []
     @IBOutlet weak var accountTableView: UITableView!
     @IBOutlet weak var addAccountButton: UIButton!
     
@@ -17,6 +17,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         tableViewConfigure()
         addAccountButton.layer.cornerRadius = 10
+        
+        for bank in Bank.allCases {
+            accounts.append(Account(bank: bank, number: "43180201318825", holder: "정택현", info: "월세"))
+        }
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        accountTableView.reloadData()
     }
     
     func tableViewConfigure() {
@@ -26,16 +35,7 @@ class MainViewController: UIViewController {
         accountTableView.register(nib, forCellReuseIdentifier: "AccountTableViewCell")
         accountTableView.rowHeight = 65
     }
-    
-    @IBAction func editTableView(_ sender: UIBarButtonItem) {
-        if accountTableView.isEditing {
-            accountTableView.isEditing = false
-        } else {
-            accountTableView.isEditing = true
-        }
-    }
-    
-    
+
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -53,7 +53,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            num -= 1
+            accounts.remove(at: indexPath.row)
             accountTableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -70,11 +70,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK:- DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return num
+        return accounts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = accountTableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as? AccountTableViewCell else { fatalError("Error  AccountTableViewCell Cell Init ")}
+        let account = accounts[indexPath.row]
+        
+        cell.bankImageView.image = UIImage(named: "\(account.bank)")
+        cell.holderLabel.text = account.holder
+        cell.infoLabel.text = account.info
+        
+        
         return cell
     }
     

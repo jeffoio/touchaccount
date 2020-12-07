@@ -74,8 +74,8 @@
             <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="bankImageView" destination="MEs-2A-m0p" id="1eU-k8-qaZ"/>
-                <outlet property="detailLabel" destination="igW-3f-tZA" id="xiJ-pH-59Y"/>
-                <outlet property="nameLabel" destination="BmO-kY-QrT" id="vvr-La-so7"/>
+                <outlet property="holderLabel" destination="BmO-kY-QrT" id="vvr-La-so7"/>
+                <outlet property="infoLabel" destination="igW-3f-tZA" id="xiJ-pH-59Y"/>
                 <outlet property="numberLabel" destination="u5C-hg-iUd" id="Xtt-QC-AO4"/>
                 <outlet property="roundView" destination="ZmA-5d-3ef" id="qwh-6a-3Tz"/>
             </connections>
@@ -83,7 +83,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="kakao" width="35" height="35"/>
+        <image name="kakao" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
