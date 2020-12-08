@@ -7,21 +7,36 @@
 
 import UIKit
 
-class CreateTableView_InputCell: UITableViewCell {
+@objc protocol CreateTableViewDelegate: NSObjectProtocol {
+    func valueChangeInTextField(cell: CreateTableView_InputCell)
+}
 
+class CreateTableView_InputCell: UITableViewCell, UITextFieldDelegate {
+    
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
+    var delegate: CreateTableViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        //self.contentView.layer.cornerRadius = 15
+        textField.delegate = self
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.responds(to: #selector(CreateTableViewDelegate.valueChangeInTextField(cell:)))
+        delegate?.valueChangeInTextField(cell: self)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
+

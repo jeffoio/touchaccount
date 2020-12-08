@@ -27,4 +27,10 @@ class AccountTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(account: Account) {
+        bankImageView.image = UIImage(named: account.bank)
+        holderLabel.text = account.holder
+        numberLabel.text = account.number
+        infoLabel.text = account.info
+    }
 }
