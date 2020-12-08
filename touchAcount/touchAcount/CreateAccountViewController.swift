@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CreateAccountViewController: UIViewController {
     
+    let realm = try! Realm()
+    var newAccount = Account()
     @IBOutlet weak var createTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
     let inputCategory = ["은행","계좌번호","예금주","계좌정보"]
-    var seletedBank: String?
+    var seletedBank: Bank?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +43,7 @@ class CreateAccountViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // 이 메서드는 UIKeyboardDidShow 노티피케이션을 받으면 호출된다.
+    // UIKeyboardDidShow 노티피케이션을 받으면 호출된다.
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
@@ -49,7 +52,7 @@ class CreateAccountViewController: UIViewController {
         createTableView.scrollIndicatorInsets = contentInsets
     }
 
-    // 이 메서드는 UIKeyboardWillHide 노티피케이션을 받으면 호출된다.
+    // UIKeyboardWillHide 노티피케이션을 받으면 호출된다.
     @objc func keyboardWillHide(_ notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         createTableView.contentInset = contentInsets
@@ -61,9 +64,25 @@ class CreateAccountViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButton(_ sender: UIButton) {
+        if newAccount.bank != "미선택" , !newAccount.number.isEmpty , !newAccount.holder.isEmpty {
+            try! self.realm.write {
+                realm.add(newAccount)
+            }
+        } else {
+            print(newAccount.bank)
+            print(newAccount.holder)
+            print(newAccount.number)
+            print(newAccount.info)
+            print("save err")
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK:- Realm
+    func inputData(database: Account) -> Account {
+        return Account()
+    }
 }
 
 //MARK:- PickerView
@@ -81,12 +100,15 @@ extension CreateAccountViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        seletedBank = Bank.allCases[row].rawValue
+        seletedBank = Bank.allCases[row]
+        newAccount.bank = "\(Bank.allCases[row])"
+        print(newAccount.bank)
         createTableView.reloadData()
         let nextIndexPath = IndexPath(row: 0, section: 1)
         guard let nextCell = createTableView.cellForRow(at: nextIndexPath) as? CreateTableView_InputCell else { return }
         nextCell.textField.becomeFirstResponder()
     }
+    
 }
 
 
@@ -122,7 +144,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
         
         switch indexPath.section {
         case 0:
-            cell.textField.text = seletedBank ?? "미선택"
+            cell.textField.text = seletedBank?.rawValue ?? "미선택"
             cell.textField.tintColor = .clear
             cell.textField.inputView = pickerView
         case 1:
@@ -144,7 +166,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
         default:
             fatalError("Section Error")
         }
-        
+        cell.delegate = (self as CreateTableViewDelegate)
         return cell
     
     }
@@ -165,5 +187,25 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
         let curIndexPath = IndexPath(row: 0, section: 3)
         guard let curCell = createTableView.cellForRow(at: curIndexPath) as? CreateTableView_InputCell else { return }
         curCell.textField.resignFirstResponder()
+    }
+}
+
+
+extension CreateAccountViewController: CreateTableViewDelegate {
+    func valueChangeInTextField(cell: CreateTableView_InputCell) {
+        guard let input = cell.textField.text else { return }
+        if input == "" { return }
+        switch createTableView.indexPath(for: cell)?.section {
+        case 0:
+            return
+        case 1:
+            self.newAccount.number = input
+        case 2:
+            self.newAccount.holder = input
+        case 3:
+            self.newAccount.info = input
+        default:
+            fatalError("section Error")
+        }
     }
 }

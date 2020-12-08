@@ -11,10 +11,9 @@ class BankViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        
-        
+       
         // 은행 연결
         //        let kakaobank = "kakaobank://"
         //        guard let url = URL(string: kakaobank) else { return }

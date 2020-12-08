@@ -6,26 +6,35 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
-    var accounts: [Account] = []
+    let realm = try! Realm()
+    var notificationToken: NotificationToken?
+    var accounts: Results<Account> {
+        get {
+            return realm.objects(Account.self)
+        }
+    }
+    
     @IBOutlet weak var accountTableView: UITableView!
     @IBOutlet weak var addAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewConfigure()
+        registerNotification()
         addAccountButton.layer.cornerRadius = 10
-        
-        for bank in Bank.allCases {
-            accounts.append(Account(bank: bank, number: "43180201318825", holder: "정택현", info: "월세"))
-        }
-    
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        accountTableView.reloadData()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        notificationToken?.invalidate()
+    }
+    
+    deinit {
+        notificationToken?.invalidate()
     }
     
     func tableViewConfigure() {
@@ -35,7 +44,24 @@ class MainViewController: UIViewController {
         accountTableView.register(nib, forCellReuseIdentifier: "AccountTableViewCell")
         accountTableView.rowHeight = 65
     }
-
+    
+    func registerNotification() {
+        notificationToken = accounts.observe { change in
+            self.accountTableView.reloadData()
+        }
+    }
+    
+    func deleteAccount(index: Int) {
+        // do catch 수정
+        do {
+            try? self.realm.write {
+                realm.delete(accounts[index])
+            }
+        } catch {
+            print("Error")
+        }
+    }
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -53,8 +79,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            accounts.remove(at: indexPath.row)
             accountTableView.deleteRows(at: [indexPath], with: .fade)
+            deleteAccount(index: indexPath.row)
         }
     }
     
@@ -76,12 +102,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = accountTableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as? AccountTableViewCell else { fatalError("Error  AccountTableViewCell Cell Init ")}
         let account = accounts[indexPath.row]
-        
-        cell.bankImageView.image = UIImage(named: "\(account.bank)")
-        cell.holderLabel.text = account.holder
-        cell.infoLabel.text = account.info
-        
-        
+        cell.configure(account: account)
         return cell
     }
     

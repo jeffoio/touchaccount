@@ -29,3 +29,5 @@ enum Bank: String, CaseIterable {
     case jeju = "제주은행"
     case kbank = "케이뱅크"
 }
+
+
