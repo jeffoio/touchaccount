@@ -69,20 +69,12 @@ class CreateAccountViewController: UIViewController {
                 realm.add(newAccount)
             }
         } else {
-            print(newAccount.bank)
-            print(newAccount.holder)
-            print(newAccount.number)
-            print(newAccount.info)
             print("save err")
         }
-        
+
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK:- Realm
-    func inputData(database: Account) -> Account {
-        return Account()
-    }
 }
 
 //MARK:- PickerView

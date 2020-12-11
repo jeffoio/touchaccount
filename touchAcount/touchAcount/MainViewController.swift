@@ -17,15 +17,17 @@ class MainViewController: UIViewController {
             return realm.objects(Account.self)
         }
     }
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    
+    
     
     @IBOutlet weak var accountTableView: UITableView!
-    @IBOutlet weak var addAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewConfigure()
         registerNotification()
-        addAccountButton.layer.cornerRadius = 10
+        navigationBarConfigure()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,6 +47,13 @@ class MainViewController: UIViewController {
         accountTableView.rowHeight = 65
     }
     
+    func navigationBarConfigure() {
+        let navigationnAppearance = UINavigationBarAppearance()
+        navigationnAppearance.configureWithTransparentBackground()
+        self.navigationController?.navigationBar.standardAppearance = navigationnAppearance
+       
+    }
+    
     func registerNotification() {
         notificationToken = accounts.observe { change in
             self.accountTableView.reloadData()
@@ -62,37 +71,38 @@ class MainViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func touchedEditButton(_ sender: UIBarButtonItem) {
+        if sender.title == "편집" {
+            accountTableView.isEditing = true
+            sender.title = "완료"
+        } else {
+            accountTableView.isEditing = false
+            sender.title = "편집"
+        }
+    }
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK:- Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        let cell = tableView.cellForRow(at: indexPath) as! AccountTableViewCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? AccountTableViewCell else { fatalError("AccountTableViewCell Error")}
         
-        // 클립보드로 복사
-        UIPasteboard.general.string = cell.numberLabel.text!
-        
-        // Segue
-        //self.performSegue(withIdentifier: "BankSegue", sender: self)
+        if tableView.isEditing {
+            performSegue(withIdentifier: "editAccount", sender: self)
+        } else {
+            // 클립보드로 복사
+            UIPasteboard.general.string = cell.numberLabel.text!
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            accountTableView.deleteRows(at: [indexPath], with: .fade)
             deleteAccount(index: indexPath.row)
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//            if editingStyle == .delete {
-//                // Delete the row from the data source
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            } else if editingStyle == .insert {
-//                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//            }
-//        }
-//
     
     //MARK:- DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,11 +110,40 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = accountTableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as? AccountTableViewCell else { fatalError("Error  AccountTableViewCell Cell Init ")}
         let account = accounts[indexPath.row]
+        guard let cell = accountTableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell") as? AccountTableViewCell else { fatalError("Error  AccountTableViewCell Cell Init ")}
+        
         cell.configure(account: account)
+        
         return cell
     }
     
 }
 
+extension UIColor {
+    public convenience init?(hex: String) {
+        let r, g, b, a: CGFloat
+
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexColor = String(hex[start...])
+
+            if hexColor.count == 8 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x000000ff) / 255
+
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+
+        return nil
+    }
+}

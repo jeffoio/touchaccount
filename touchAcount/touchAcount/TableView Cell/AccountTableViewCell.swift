@@ -14,23 +14,22 @@ class AccountTableViewCell: UITableViewCell {
     @IBOutlet weak var holderLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
+    private var chevron = UIImage(named: "indicator.png")
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.roundView.layer.cornerRadius = 15
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.editingAccessoryType = .disclosureIndicator
+        self.editingAccessoryView = UIImageView(image: chevron!)
+        
     }
     
     func configure(account: Account) {
+        self.roundView.layer.cornerRadius = 10
         bankImageView.image = UIImage(named: account.bank)
         holderLabel.text = account.holder
         numberLabel.text = account.number
         infoLabel.text = account.info
     }
+    
 }

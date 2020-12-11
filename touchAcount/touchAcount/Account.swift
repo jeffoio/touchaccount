@@ -12,5 +12,4 @@ class Account: Object {
     @objc dynamic var number = ""
     @objc dynamic var holder = ""
     @objc dynamic var info = ""
-    
 }
