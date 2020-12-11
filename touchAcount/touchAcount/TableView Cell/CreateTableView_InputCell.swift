@@ -20,13 +20,6 @@ class CreateTableView_InputCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.delegate = self
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

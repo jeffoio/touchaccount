@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pEa-PF-Js7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Touch Account-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="touchAcount" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-mL-Ewe">
-                                <rect key="frame" x="0.0" y="54" width="414" height="717"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-mL-Ewe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="896"/>
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" id="SNC-IA-Im5" customClass="AccountTableViewCell" customModule="touchAcount" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" editingAccessoryType="disclosureIndicator" id="SNC-IA-Im5" customClass="AccountTableViewCell" customModule="touchAcount" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SNC-IA-Im5" id="lX8-fO-Ckk">
@@ -29,49 +29,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-za-d44">
-                                <rect key="frame" x="31" y="791" width="352" height="42"/>
-                                <color key="backgroundColor" red="0.094117647058823528" green="0.56862745098039214" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
-                                <state key="normal" title="추가">
-                                    <color key="titleColor" red="0.82352941176470584" green="0.92549019607843142" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="x3m-zU-pJY" kind="presentation" id="WEq-BG-VyA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2Ob-za-d44" firstAttribute="top" secondItem="1EX-mL-Ewe" secondAttribute="bottom" constant="20" id="FFq-ie-TOP"/>
-                            <constraint firstItem="2Ob-za-d44" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JR2-rh-aNk"/>
                             <constraint firstItem="1EX-mL-Ewe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KV7-P4-kd0"/>
                             <constraint firstItem="1EX-mL-Ewe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NFj-VH-Ri0"/>
-                            <constraint firstItem="2Ob-za-d44" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="SUd-gd-fdM"/>
-                            <constraint firstItem="1EX-mL-Ewe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="Wtt-K5-kxM"/>
-                            <constraint firstItem="1EX-mL-Ewe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="psc-GT-D6K"/>
+                            <constraint firstItem="1EX-mL-Ewe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Wtt-K5-kxM"/>
+                            <constraint firstItem="1EX-mL-Ewe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="psc-GT-D6K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Touch Account" id="dVN-0y-RII">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ldu-F1-6EC">
-                            <color key="tintColor" red="0.82352941176470584" green="0.92549019607843142" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                    <navigationItem key="navigationItem" id="dVN-0y-RII">
+                        <barButtonItem key="leftBarButtonItem" title="편집" id="Ldu-F1-6EC">
+                            <color key="tintColor" red="0.094117647058823528" green="0.56862745098039214" blue="0.67450980392156867" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="editTableView:" destination="BYZ-38-t0r" id="Cnv-I2-2Vj"/>
+                                <action selector="touchedEditButton:" destination="BYZ-38-t0r" id="dY8-f7-1Gp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YJY-p6-IKX">
-                            <color key="tintColor" red="0.82352941176470584" green="0.92549019607843142" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.094117647058823528" green="0.56862745098039214" blue="0.67450980392156867" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="x3m-zU-pJY" kind="presentation" identifier="editAccount" id="mG4-qA-NMq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accountTableView" destination="1EX-mL-Ewe" id="VMm-ac-RrZ"/>
-                        <outlet property="addAccountButton" destination="2Ob-za-d44" id="EzI-F1-omm"/>
+                        <outlet property="editBarButton" destination="Ldu-F1-6EC" id="iqb-yd-kR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74" y="858"/>
+            <point key="canvasLocation" x="834.78260869565224" y="857.8125"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="yY1-fm-fvc">
@@ -133,7 +122,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fu-Vc-afK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.34782608695662" y="857.8125"/>
+            <point key="canvasLocation" x="1819" y="858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iNz-Vm-qA9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pEa-PF-Js7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1n-KI-Sp4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wcn-GX-xAN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W7P-Wy-9Qm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-75.362318840579718" y="857.8125"/>
         </scene>
     </scenes>
     <resources>

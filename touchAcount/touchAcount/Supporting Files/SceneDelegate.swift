@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
         //window?.backgroundColor = UIColor(red: 41.0 / 255.0, green: 36.0 / 255.0, blue: 86.0 / 255.0, alpha: 1.0)
     }
 
