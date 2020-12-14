@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F04DE392587576E00D2F950 /* BankCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F04DE382587576E00D2F950 /* BankCollectionViewCell.swift */; };
 		1F0F885C257803DB0031C2BB /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F885B257803DB0031C2BB /* BankViewController.swift */; };
 		1F66DBC92578C68D007E32F8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */; };
 		1F66DBCC2578D371007E32F8 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66DBCB2578D371007E32F8 /* Bank.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		003778F48C084B1D0A1950FD /* Pods_touchAcount.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_touchAcount.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F04DE382587576E00D2F950 /* BankCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F0F885B257803DB0031C2BB /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F66DBCB2578D371007E32F8 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
@@ -58,15 +60,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F0D60D0257B7EA6007174EF /* TableView Cell */ = {
+		1F0D60D0257B7EA6007174EF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				1F88C7A62577E9FF00ECCD0E /* AccountTableViewCell.swift */,
 				1F88C7A72577E9FF00ECCD0E /* AccountTableViewCell.xib */,
 				1FBEDFF5257BA15A0078E8A7 /* CreateTableView_InputCell.swift */,
 				1FBEDFF6257BA15A0078E8A7 /* CreateTableView_InputCell.xib */,
+				1F04DE382587576E00D2F950 /* BankCollectionViewCell.swift */,
 			);
-			path = "TableView Cell";
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1F88C7812577E75C00ECCD0E = {
@@ -97,7 +100,7 @@
 				1F66DBCB2578D371007E32F8 /* Bank.swift */,
 				1FB54DAF257DE5F9007A374C /* Account.swift */,
 				1F88C7932577E75D00ECCD0E /* Main.storyboard */,
-				1F0D60D0257B7EA6007174EF /* TableView Cell */,
+				1F0D60D0257B7EA6007174EF /* Cell */,
 				1F88C7962577E75E00ECCD0E /* Assets.xcassets */,
 				1F88C79B2577E75E00ECCD0E /* Info.plist */,
 			);
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F04DE392587576E00D2F950 /* BankCollectionViewCell.swift in Sources */,
 				1F66DBC92578C68D007E32F8 /* CreateAccountViewController.swift in Sources */,
 				1F88C7922577E75D00ECCD0E /* MainViewController.swift in Sources */,
 				1F88C7A82577E9FF00ECCD0E /* AccountTableViewCell.swift in Sources */,

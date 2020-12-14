@@ -11,14 +11,21 @@ import RealmSwift
 class CreateAccountViewController: UIViewController {
     
     let realm = try! Realm()
+    var inputCategory: [String] = []
     var newAccount = Account()
+    var editingRow: Int?
+    var accounts: Results<Account> {
+        get {
+            return realm.objects(Account.self)
+        }
+    }
+    
     @IBOutlet weak var createTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
-    let inputCategory = ["은행","계좌번호","예금주","계좌정보"]
-    var seletedBank: Bank?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        accountConfigure()
         tableViewConfigure()
         registerForKeyboardNotifications()
         saveButton.layer.cornerRadius = 10
@@ -30,6 +37,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     func tableViewConfigure() {
+        inputCategory = ["은행","계좌번호","예금주","계좌정보"]
         createTableView.delegate = self
         createTableView.dataSource = self
         let inputNib = UINib(nibName: "\(CreateTableView_InputCell.self)", bundle: nil)
@@ -37,6 +45,16 @@ class CreateAccountViewController: UIViewController {
         createTableView.keyboardDismissMode = .onDrag
         createTableView.rowHeight = 45
     }
+    
+    func accountConfigure() {
+        guard let editingRow = editingRow else { return }
+        let editAccount = accounts[editingRow]
+        newAccount.bank = editAccount.bank
+        newAccount.holder = editAccount.holder
+        newAccount.number = editAccount.number
+        newAccount.info = editAccount.info
+    }
+    
     //MARK:- Notification
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -63,10 +81,24 @@ class CreateAccountViewController: UIViewController {
     @IBAction func cancelBarButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveButton(_ sender: UIButton) {
-        if newAccount.bank != "미선택" , !newAccount.number.isEmpty , !newAccount.holder.isEmpty {
-            try! self.realm.write {
-                realm.add(newAccount)
+        if !newAccount.bank.isEmpty , !newAccount.number.isEmpty , !newAccount.holder.isEmpty {
+            if editingRow == nil {
+                try! realm.write {
+                    realm.add(newAccount)
+                }
+            } else {
+                guard let editingRow = editingRow else { return }
+                let editAccount = accounts[editingRow]
+                let predicateQuery = NSPredicate(format: "number == %@", editAccount.number)
+                let account = realm.objects(Account.self).filter(predicateQuery).first
+                try! realm.write {
+                    account!.bank = newAccount.bank
+                    account!.holder = newAccount.holder
+                    account!.info = newAccount.info
+                    account!.number = newAccount.number
+                }
             }
         } else {
             print("save err")
@@ -92,9 +124,7 @@ extension CreateAccountViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        seletedBank = Bank.allCases[row]
-        newAccount.bank = "\(Bank.allCases[row])"
-        print(newAccount.bank)
+        newAccount.bank = Bank.allCases[row].rawValue
         createTableView.reloadData()
         let nextIndexPath = IndexPath(row: 0, section: 1)
         guard let nextCell = createTableView.cellForRow(at: nextIndexPath) as? CreateTableView_InputCell else { return }
@@ -136,7 +166,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
         
         switch indexPath.section {
         case 0:
-            cell.textField.text = seletedBank?.rawValue ?? "미선택"
+            cell.textField.text = newAccount.bank.isEmpty ? "미선택" : newAccount.bank
             cell.textField.tintColor = .clear
             cell.textField.inputView = pickerView
         case 1:
@@ -145,16 +175,19 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
             cell.textField.inputAccessoryView = barAccessory
             cell.textField.keyboardType = .numberPad
             cell.textField.placeholder = "숫자만 입력해주세요"
+            cell.textField.text = newAccount.number
         case 2:
             let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nameDone))
             barAccessory.setItems([space, nextButton], animated: false)
             cell.textField.inputAccessoryView = barAccessory
             cell.textField.placeholder = "받으실분 성함을 입력해주세요"
+            cell.textField.text = newAccount.holder
         case 3:
             let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(infoDone))
             barAccessory.setItems([space, doneButton], animated: false)
             cell.textField.inputAccessoryView = barAccessory
             cell.textField.placeholder = "예시) 동행복권"
+            cell.textField.text = newAccount.info
         default:
             fatalError("Section Error")
         }
