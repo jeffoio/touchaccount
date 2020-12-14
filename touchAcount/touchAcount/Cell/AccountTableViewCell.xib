@@ -52,7 +52,7 @@
                             <constraint firstItem="HBz-0i-i3j" firstAttribute="leading" secondItem="ZmA-5d-3ef" secondAttribute="leading" constant="10" id="O6Z-Lf-hl3"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakao" translatesAutoresizingMaskIntoConstraints="NO" id="MEs-2A-m0p">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="카카오뱅크" translatesAutoresizingMaskIntoConstraints="NO" id="MEs-2A-m0p">
                         <rect key="frame" x="34" y="10" width="17.5" height="17.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="MEs-2A-m0p" secondAttribute="height" multiplier="1:1" id="SDg-cX-h4U"/>
@@ -83,7 +83,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="kakao" width="30" height="30"/>
+        <image name="카카오뱅크" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -12,15 +12,14 @@ class MainViewController: UIViewController {
     
     let realm = try! Realm()
     var notificationToken: NotificationToken?
+    var seletedRow: Int?
     var accounts: Results<Account> {
         get {
             return realm.objects(Account.self)
         }
     }
+    
     @IBOutlet weak var editBarButton: UIBarButtonItem!
-    
-    
-    
     @IBOutlet weak var accountTableView: UITableView!
     
     override func viewDidLoad() {
@@ -51,7 +50,6 @@ class MainViewController: UIViewController {
         let navigationnAppearance = UINavigationBarAppearance()
         navigationnAppearance.configureWithTransparentBackground()
         self.navigationController?.navigationBar.standardAppearance = navigationnAppearance
-       
     }
     
     func registerNotification() {
@@ -82,6 +80,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editAccount" {
+            if let destVC = segue.destination as? CreateAccountViewController {
+                if accountTableView.isEditing {
+                    destVC.editingRow = seletedRow
+                }
+            }
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -91,10 +98,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.cellForRow(at: indexPath) as? AccountTableViewCell else { fatalError("AccountTableViewCell Error")}
         
         if tableView.isEditing {
+            seletedRow = indexPath.row
             performSegue(withIdentifier: "editAccount", sender: self)
         } else {
             // 클립보드로 복사
             UIPasteboard.general.string = cell.numberLabel.text!
+            performSegue(withIdentifier: "selectBank", sender: self)
         }
     }
     
@@ -118,32 +127,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-}
-
-extension UIColor {
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
-
-        if hex.hasPrefix("#") {
-            let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
-
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-
-        return nil
-    }
 }

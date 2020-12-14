@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -23,6 +21,12 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaobank</string>
+		<string>kakaopay</string>
+		<string>newnhsmartbanking</string>
+		<string>supertoss</string>
+		<string>hananbank</string>
+		<string>ionebank</string>
+		<string>smartbank</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -68,6 +72,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

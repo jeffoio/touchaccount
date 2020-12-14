@@ -17,6 +17,7 @@ enum Bank: String, CaseIterable {
     case woori = "우리은행"
     case citi = "한국시티은행"
     case hana = "하나은행"
+    case exchange = "외환은행"
     case sc = "SC제일은행"
     case kyongnam = "경남은행"
     case gwangju = "광주은행"
