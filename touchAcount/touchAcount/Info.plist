@@ -21,12 +21,36 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaobank</string>
-		<string>kakaopay</string>
-		<string>newnhsmartbanking</string>
 		<string>supertoss</string>
-		<string>hananbank</string>
+		<string>kbBank</string>
+		<string>liivbank</string>
+		<string>liivtalk</string>
+		<string>newnhsmartbanking</string>
+		<string>NHCOK</string>
+		<string>NHAllOneBank</string>
 		<string>ionebank</string>
-		<string>smartbank</string>
+		<string>sbankmoasign</string>
+		<string>smartkdb</string>
+		<string>NewSmartPib</string>
+		<string>SmartBank2WIB</string>
+		<string>KTollehCitiMobile</string>
+		<string>hanapush</string>
+		<string>hanawalletmembers</string>
+		<string>VeraPortCG</string>
+		<string>nfs</string>
+		<string>kjbankpb</string>
+		<string>dgbmbanking</string>
+		<string>bslink</string>
+		<string>sumbank</string>
+		<string>kfccSB</string>
+		<string>mgsangsangbank</string>
+		<string>suhyuppesmb</string>
+		<string>suhyuppsmb</string>
+		<string></string>
+		<string>jbsmartbank</string>
+		<string>jbanksmartBankSign</string>
+		<string>ukbanksmartbank</string>
+		<string>cuonbank</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

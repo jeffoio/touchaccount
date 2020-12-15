@@ -7,23 +7,64 @@
 
 import UIKit
 
-class BankViewController: UIViewController {
+class BankViewController: UIViewController, UICollectionViewDelegate {
     enum Section {
         case main
     }
-    
-    var dataSource: UICollectionViewDiffableDataSource<Section, Bank>!
+    var dataSource: UICollectionViewDiffableDataSource<Section, BankApp>!
+    var possibleBankApp: [BankApp] = []
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView.delegate = self
         collectionView.collectionViewLayout = configureLayout()
+        checkPossibleBankApp()
         configureDataSource()
+    }
+    
+    func checkPossibleBankApp() {
+        for bank in BankApp.allCases {
+            guard let url = URL(string: "\(bank)://" ) else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                possibleBankApp.append(bank)
+            }
+        }
+    }
+    
+    func configureLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.15))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, BankApp>(collectionView: self.collectionView)  { (collectionView, indexPath, number ) -> UICollectionViewCell? in
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BankCollectionViewCell.reuseIdentifier, for: indexPath) as? BankCollectionViewCell else { fatalError("Error Cell init")}
+            cell.bankTitleLabel.text = self.possibleBankApp[indexPath.item].rawValue
+            //cell.backgroundColor = .white
+            cell.layer.cornerRadius = 5
+            return cell
+        }
+        
+        var initialSnapShot = NSDiffableDataSourceSnapshot<Section, BankApp>()
+        initialSnapShot.appendSections([.main])
+        initialSnapShot.appendItems(possibleBankApp, toSection: .main)
+        
+        dataSource.apply(initialSnapShot, animatingDifferences: false, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         //은행 연결
-        let kakaobank = "smartbank://"
-        guard let url = URL(string: kakaobank) else { return }
+        let bank = "\(possibleBankApp[indexPath.item])://"
+        guard let url = URL(string: bank ) else { return }
         if UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
@@ -32,46 +73,6 @@ class BankViewController: UIViewController {
                 UIApplication.shared.openURL(url)
             }
         }
-//        if let url = URL(string: "com.wooribank.smart.npib://")
-//        {
-//                   if #available(iOS 10.0, *) {
-//                      UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                   }
-//                   else {
-//                         if UIApplication.shared.canOpenURL(url as URL) {
-//                            UIApplication.shared.openURL(url as URL)
-//                        }
-//                   }
-//        }
-    }
-    
-    func configureLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.13))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        
-        return UICollectionViewCompositionalLayout(section: section)
-    }
-
-    func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Bank>(collectionView: self.collectionView)  { (collectionView, indexPath, number ) -> UICollectionViewCell? in
-            
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BankCollectionViewCell.reuseIdentifier, for: indexPath) as? BankCollectionViewCell else { fatalError("Error Cell init")}
-            cell.bankImageView.image = UIImage(named: Bank.allCases[indexPath.item].rawValue)
-            cell.bankTitleLabel.text = Bank.allCases[indexPath.item].rawValue
-            cell.backgroundColor = .white
-            cell.layer.cornerRadius = 10
-            return cell
-        }
-        
-        var initialSnapShot = NSDiffableDataSourceSnapshot<Section, Bank>()
-        initialSnapShot.appendSections([.main])
-        initialSnapShot.appendItems(Bank.allCases, toSection: .main)
-        
-        dataSource.apply(initialSnapShot, animatingDifferences: false, completion: nil)
     }
     
     //MARK:- IBAction
@@ -79,3 +80,4 @@ class BankViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+

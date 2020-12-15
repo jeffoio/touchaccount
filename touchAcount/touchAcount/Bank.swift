@@ -32,3 +32,36 @@ enum Bank: String, CaseIterable {
 }
 
 
+enum BankApp: String, CaseIterable {
+    case kakaobank = "카카오뱅크"
+    case supertoss = "토스"
+    case kbBank = "KB스타뱅킹"
+    case liivbank = "리브"
+    case liivtalk = "리브똑똑"
+    case newnhsmartbanking = "NH스마트뱅킹"
+    case NHCOK = "NH콕뱅크"
+    case NHAllOneBank = "NH올원뱅크"
+    case ionebank = "IBK기업은행"
+    case sbankmoasign = "신한 쏠"
+    case smartkdb = "스마트KDB"
+    case NewSmartPib = "우리WON뱅킹"
+    case SmartBank2WIB = "위비뱅크"
+    case KTollehCitiMobile = "시티모바일"
+    case hanapush = "하나원큐"
+    case hanawalletmembers = "하나멤버스"
+    case VeraPortCG = "SC제일은행"
+    case nfs = "BNK경남은행"
+    case kjbankpb = "광주은행"
+    case dgbmbanking = "IM뱅크"
+    case bslink = "BNK부산은행"
+    case sumbank = "썸뱅크"
+    case kfccSB = "MG더뱅킹"
+    case mgsangsangbank = "MG상상뱅크"
+    case suhyuppesmb = "헤이뱅크"
+    case suhyuppsmb = "파트너뱅크"
+     
+    case jbsmartbank = "전북은행"
+    case jbanksmartBankSign = "제주모바일뱅킹"
+    case ukbanksmartbank = "케이뱅크"
+    case cuonbank = "신협ON뱅크"
+}

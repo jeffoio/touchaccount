@@ -9,8 +9,5 @@ import UIKit
 
 class BankCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: BankCollectionViewCell.self)
-    @IBOutlet weak var bankImageView: UIImageView!
     @IBOutlet weak var bankTitleLabel: UILabel!
-    
-    
 }
