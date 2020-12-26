@@ -122,7 +122,8 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# Sketch
+# Design
 *.sketch
+/design
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,cocoapods,swiftp

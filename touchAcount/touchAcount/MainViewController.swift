@@ -9,7 +9,6 @@ import UIKit
 import RealmSwift
 
 class MainViewController: UIViewController {
-    
     let realm = try! Realm()
     var notificationToken: NotificationToken?
     var seletedRow: Int?
@@ -59,17 +58,15 @@ class MainViewController: UIViewController {
     }
     
     func deleteAccount(index: Int) {
-        // do catch 수정
         do {
-            try? self.realm.write {
+            try self.realm.write {
                 realm.delete(accounts[index])
             }
         } catch {
-            print("Error")
+            print("Error realm delete")
         }
     }
-    
-    
+   
     @IBAction func touchedEditButton(_ sender: UIBarButtonItem) {
         if sender.title == "편집" {
             accountTableView.isEditing = true
@@ -95,14 +92,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK:- Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let cell = tableView.cellForRow(at: indexPath) as? AccountTableViewCell else { fatalError("AccountTableViewCell Error")}
         
         if tableView.isEditing {
             seletedRow = indexPath.row
             performSegue(withIdentifier: "editAccount", sender: self)
+            accountTableView.isEditing = false
+            editBarButton.title = "편집"
         } else {
             // 클립보드로 복사
-            UIPasteboard.general.string = cell.numberLabel.text!
+            UIPasteboard.general.string = "\(accounts[indexPath.row].number) \(accounts[indexPath.row].bank)"
             performSegue(withIdentifier: "selectBank", sender: self)
         }
     }
