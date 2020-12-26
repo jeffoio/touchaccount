@@ -31,7 +31,7 @@
 		1F0F885B257803DB0031C2BB /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		1F66DBC82578C68D007E32F8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F66DBCB2578D371007E32F8 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
-		1F88C78A2577E75D00ECCD0E /* touchAcount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = touchAcount.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F88C78A2577E75D00ECCD0E /* 계좌창고.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "계좌창고.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F88C78D2577E75D00ECCD0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F88C78F2577E75D00ECCD0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1F88C7912577E75D00ECCD0E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		1F88C78B2577E75D00ECCD0E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F88C78A2577E75D00ECCD0E /* touchAcount.app */,
+				1F88C78A2577E75D00ECCD0E /* 계좌창고.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 			);
 			name = touchAcount;
 			productName = touchAcount;
-			productReference = 1F88C78A2577E75D00ECCD0E /* touchAcount.app */;
+			productReference = 1F88C78A2577E75D00ECCD0E /* 계좌창고.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +416,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.jeff.touchAcount;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "계좌창고";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -437,7 +437,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.jeff.touchAcount;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "계좌창고";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
