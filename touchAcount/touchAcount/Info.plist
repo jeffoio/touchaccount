@@ -20,6 +20,7 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>kakaopay</string>
 		<string>kakaobank</string>
 		<string>supertoss</string>
 		<string>kbBank</string>
@@ -46,11 +47,24 @@
 		<string>mgsangsangbank</string>
 		<string>suhyuppesmb</string>
 		<string>suhyuppsmb</string>
-		<string></string>
+		<string>postpay</string>
 		<string>jbsmartbank</string>
 		<string>jbanksmartBankSign</string>
 		<string>ukbanksmartbank</string>
 		<string>cuonbank</string>
+		<string>kbbiz</string>
+		<string>dgbbbanking</string>
+		<string>mcbs</string>
+		<string>kakaob0a5afe92aad41a59f22497a2b1f6be3</string>
+		<string>kakaoae784afda3057dafbde4bb9da80bfdfc</string>
+		<string>smartsbe</string>
+		<string>suhyupbsmb</string>
+		<string>hanancbs</string>
+		<string>ukbankcbzbank</string>
+		<string>SmartBankWBC</string>
+		<string>wooriwonbiz</string>
+		<string>bizsmartkdb</string>
+		<string>iphoneSbizbank</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
