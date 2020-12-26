@@ -9,7 +9,6 @@ import UIKit
 import RealmSwift
 
 class CreateAccountViewController: UIViewController {
-    
     let realm = try! Realm()
     var inputCategory: [String] = []
     var newAccount = Account()
@@ -47,6 +46,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     func accountConfigure() {
+        newAccount.bank = "카카오뱅크"
         guard let editingRow = editingRow else { return }
         let editAccount = accounts[editingRow]
         newAccount.bank = editAccount.bank
@@ -61,7 +61,7 @@ class CreateAccountViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // UIKeyboardDidShow 노티피케이션을 받으면 호출된다.
+    // UIKeyboardDidShow 노티피케이션을 받으면 호출
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
@@ -69,8 +69,8 @@ class CreateAccountViewController: UIViewController {
         createTableView.contentInset = contentInsets
         createTableView.scrollIndicatorInsets = contentInsets
     }
-
-    // UIKeyboardWillHide 노티피케이션을 받으면 호출된다.
+    
+    // UIKeyboardWillHide 노티피케이션을 받으면 호출
     @objc func keyboardWillHide(_ notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
         createTableView.contentInset = contentInsets
@@ -85,25 +85,33 @@ class CreateAccountViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIButton) {
         if !newAccount.bank.isEmpty , !newAccount.number.isEmpty , !newAccount.holder.isEmpty {
             if editingRow == nil {
-                try! realm.write {
-                    realm.add(newAccount)
+                do {
+                    try self.realm.write {
+                        realm.add(newAccount)
+                    }
+                } catch {
+                    print("Error realm write")
                 }
+                
             } else {
                 guard let editingRow = editingRow else { return }
                 let editAccount = accounts[editingRow]
                 let predicateQuery = NSPredicate(format: "number == %@", editAccount.number)
                 let account = realm.objects(Account.self).filter(predicateQuery).first
-                try! realm.write {
-                    account!.bank = newAccount.bank
-                    account!.holder = newAccount.holder
-                    account!.info = newAccount.info
-                    account!.number = newAccount.number
+                
+                do {
+                    try self.realm.write {
+                        account!.bank = newAccount.bank
+                        account!.holder = newAccount.holder
+                        account!.info = newAccount.info
+                        account!.number = newAccount.number
+                    }
+                } catch {
+                    print("Error realm write")
+                
                 }
             }
-        } else {
-            print("save err")
         }
-
         dismiss(animated: true, completion: nil)
     }
     
@@ -166,7 +174,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
         
         switch indexPath.section {
         case 0:
-            cell.textField.text = newAccount.bank.isEmpty ? "미선택" : newAccount.bank
+            cell.textField.text = newAccount.bank
             cell.textField.tintColor = .clear
             cell.textField.inputView = pickerView
         case 1:
@@ -186,16 +194,16 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
             let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(infoDone))
             barAccessory.setItems([space, doneButton], animated: false)
             cell.textField.inputAccessoryView = barAccessory
-            cell.textField.placeholder = "예시) 동행복권"
+            cell.textField.placeholder = "예시) 전용 납부계좌"
             cell.textField.text = newAccount.info
         default:
             fatalError("Section Error")
         }
         cell.delegate = (self as CreateTableViewDelegate)
         return cell
-    
+        
     }
-
+    
     @objc func numberDone() {
         let nextIndexPath = IndexPath(row: 0, section: 2)
         guard let nextCell = createTableView.cellForRow(at: nextIndexPath) as? CreateTableView_InputCell else { return }
@@ -219,13 +227,14 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 extension CreateAccountViewController: CreateTableViewDelegate {
     func valueChangeInTextField(cell: CreateTableView_InputCell) {
         guard let input = cell.textField.text else { return }
-        if input == "" { return }
         switch createTableView.indexPath(for: cell)?.section {
         case 0:
             return
         case 1:
+            if input == "" { return }
             self.newAccount.number = input
         case 2:
+            if input == "" { return }
             self.newAccount.holder = input
         case 3:
             self.newAccount.info = input
