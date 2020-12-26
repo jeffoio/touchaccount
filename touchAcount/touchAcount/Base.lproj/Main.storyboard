@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pEa-PF-Js7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pEa-PF-Js7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,16 +11,16 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="touchAcount" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="계좌창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-mL-Ewe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="896"/>
-                                <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" editingAccessoryType="disclosureIndicator" id="SNC-IA-Im5" customClass="AccountTableViewCell" customModule="touchAcount" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTableViewCell" editingAccessoryType="disclosureIndicator" id="SNC-IA-Im5" customClass="AccountTableViewCell" customModule="계좌창고" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SNC-IA-Im5" id="lX8-fO-Ckk">
@@ -35,7 +35,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1EX-mL-Ewe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KV7-P4-kd0"/>
                             <constraint firstItem="1EX-mL-Ewe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NFj-VH-Ri0"/>
@@ -59,7 +59,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="accountTableView" destination="1EX-mL-Ewe" id="VMm-ac-RrZ"/>
-                        <outlet property="editBarButton" destination="Ldu-F1-6EC" id="iqb-yd-kR1"/>
+                        <outlet property="editBarButton" destination="Ldu-F1-6EC" id="diD-k8-vyT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,14 +69,14 @@
         <!--Create Account View Controller-->
         <scene sceneID="yY1-fm-fvc">
             <objects>
-                <viewController id="x3m-zU-pJY" customClass="CreateAccountViewController" customModule="touchAcount" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x3m-zU-pJY" customClass="CreateAccountViewController" customModule="계좌창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cYd-UN-ONu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-or-nq0">
                                 <rect key="frame" x="0.0" y="41" width="414" height="675"/>
-                                <color key="backgroundColor" red="0.1450980392" green="0.23137254900000001" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" red="0.82352941180000006" green="0.92549019610000005" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewr-YG-Lod">
@@ -106,7 +106,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wby-9X-fal"/>
-                        <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EPq-or-nq0" firstAttribute="width" secondItem="cYd-UN-ONu" secondAttribute="width" id="0H1-Ml-Gu3"/>
                             <constraint firstItem="Wby-9X-fal" firstAttribute="trailing" secondItem="ewr-YG-Lod" secondAttribute="trailing" constant="20" id="4df-rP-T4i"/>
@@ -131,92 +131,96 @@
         <!--Bank View Controller-->
         <scene sceneID="Mnk-HI-YEo">
             <objects>
-                <viewController id="UZC-LW-Jbr" customClass="BankViewController" customModule="touchAcount" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="UZC-LW-Jbr" customClass="BankViewController" customModule="계좌창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Agy-fw-WWI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x5h-qc-3bo">
-                                <rect key="frame" x="20" y="56" width="374" height="752"/>
-                                <color key="backgroundColor" red="0.1450980392" green="0.23137254900000001" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dQ4-o4-c2I">
-                                    <size key="itemSize" width="214" height="83"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BankCollectionViewCell" id="LXB-bW-jzU" customClass="BankCollectionViewCell" customModule="touchAcount" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1gz-sJ-9tC">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국민은행" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH4-iI-dN2">
-                                                    <rect key="frame" x="164.5" y="17" width="45" height="16"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hH4-iI-dN2" firstAttribute="centerY" secondItem="1gz-sJ-9tC" secondAttribute="centerY" id="GLQ-5E-FDF"/>
-                                                <constraint firstItem="hH4-iI-dN2" firstAttribute="centerX" secondItem="1gz-sJ-9tC" secondAttribute="centerX" id="yAE-qb-iK1"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.094117647058823528" green="0.56862745098039214" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="374" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-Gb-yZZ">
+                                <rect key="frame" x="0.0" y="505" width="414" height="337"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MIG-OY-Hv0">
+                                        <rect key="frame" x="20" y="51" width="374" height="266"/>
+                                        <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="os8-4d-pGl">
+                                            <size key="itemSize" width="214" height="83"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BankCollectionViewCell" id="nIT-8O-lDY" customClass="BankCollectionViewCell" customModule="계좌창고" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WZW-qN-Sb5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국민은행" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DK-qg-tnm">
+                                                            <rect key="frame" x="164.5" y="17" width="45" height="16"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="4DK-qg-tnm" firstAttribute="centerX" secondItem="WZW-qN-Sb5" secondAttribute="centerX" id="5B6-GZ-UTp"/>
+                                                        <constraint firstItem="4DK-qg-tnm" firstAttribute="centerY" secondItem="WZW-qN-Sb5" secondAttribute="centerY" id="xiM-z2-vfP"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" red="0.094117647060000004" green="0.56862745100000001" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="customSize" width="374" height="50"/>
+                                                <connections>
+                                                    <outlet property="bankTitleLabel" destination="4DK-qg-tnm" id="Eo0-Cv-9qy"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="은행앱 바로가기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8V-Nf-cdH">
+                                        <rect key="frame" x="20" y="20" width="108" height="21"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEM-oZ-7GN">
+                                        <rect key="frame" x="366" y="21" width="28" height="19"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                        <color key="tintColor" red="0.82352941180000006" green="0.92549019610000005" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
                                         <connections>
-                                            <outlet property="bankTitleLabel" destination="hH4-iI-dN2" id="LvU-41-ARY"/>
+                                            <action selector="cancelBarButton:" destination="UZC-LW-Jbr" eventType="touchUpInside" id="2F2-oW-W0f"/>
                                         </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LgG-b3-Ie5">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2O-B4-CLC">
-                                <rect key="frame" x="373" y="20" width="21" height="21"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.30588235294117649" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="W2O-B4-CLC" secondAttribute="height" multiplier="1:1" id="1ec-ZA-7hl"/>
+                                    <constraint firstItem="MIG-OY-Hv0" firstAttribute="leading" secondItem="DiU-Gb-yZZ" secondAttribute="leading" constant="20" symbolic="YES" id="66h-4T-o3z"/>
+                                    <constraint firstItem="oEM-oZ-7GN" firstAttribute="centerY" secondItem="L8V-Nf-cdH" secondAttribute="centerY" id="BcZ-YJ-8xZ"/>
+                                    <constraint firstItem="oEM-oZ-7GN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="L8V-Nf-cdH" secondAttribute="trailing" constant="238" id="EUA-Kx-8Yr"/>
+                                    <constraint firstItem="L8V-Nf-cdH" firstAttribute="top" secondItem="DiU-Gb-yZZ" secondAttribute="top" constant="20" symbolic="YES" id="MKu-T8-gZW"/>
+                                    <constraint firstItem="MIG-OY-Hv0" firstAttribute="top" secondItem="L8V-Nf-cdH" secondAttribute="bottom" constant="10" id="e7I-Ia-nfh"/>
+                                    <constraint firstAttribute="trailing" secondItem="oEM-oZ-7GN" secondAttribute="trailing" constant="20" symbolic="YES" id="ifo-J6-jdo"/>
+                                    <constraint firstAttribute="trailing" secondItem="MIG-OY-Hv0" secondAttribute="trailing" constant="20" symbolic="YES" id="osx-u6-nvL"/>
+                                    <constraint firstAttribute="bottom" secondItem="MIG-OY-Hv0" secondAttribute="bottom" constant="20" symbolic="YES" id="r4z-dS-hp0"/>
+                                    <constraint firstItem="L8V-Nf-cdH" firstAttribute="leading" secondItem="DiU-Gb-yZZ" secondAttribute="leading" constant="20" symbolic="YES" id="vJ8-Rt-jjf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <color key="tintColor" red="0.82352941180000006" green="0.92549019610000005" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="xmark" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelBarButton:" destination="UZC-LW-Jbr" eventType="touchUpInside" id="E4J-V0-SQv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 바로가기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cU-ao-WJR">
-                                <rect key="frame" x="20" y="15.5" width="115" height="30"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CxN-uR-GAT"/>
-                        <color key="backgroundColor" red="0.14509803921568626" green="0.23137254901960785" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="W2O-B4-CLC" firstAttribute="width" secondItem="W2O-B4-CLC" secondAttribute="height" multiplier="1:1" id="CAw-8M-fj5"/>
-                            <constraint firstItem="CxN-uR-GAT" firstAttribute="bottom" secondItem="x5h-qc-3bo" secondAttribute="bottom" id="DZm-gs-4eB"/>
-                            <constraint firstItem="8cU-ao-WJR" firstAttribute="leading" secondItem="CxN-uR-GAT" secondAttribute="leading" constant="20" id="HyF-Kl-OI9"/>
-                            <constraint firstItem="W2O-B4-CLC" firstAttribute="top" secondItem="CxN-uR-GAT" secondAttribute="top" constant="20" id="VYX-Zc-Fa8"/>
-                            <constraint firstItem="CxN-uR-GAT" firstAttribute="trailing" secondItem="x5h-qc-3bo" secondAttribute="trailing" constant="20" id="j75-zW-zDT"/>
-                            <constraint firstItem="x5h-qc-3bo" firstAttribute="top" secondItem="W2O-B4-CLC" secondAttribute="bottom" constant="15" id="nvp-Wu-yZr"/>
-                            <constraint firstItem="x5h-qc-3bo" firstAttribute="leading" secondItem="CxN-uR-GAT" secondAttribute="leading" constant="20" id="ofG-dj-S6u"/>
-                            <constraint firstItem="x5h-qc-3bo" firstAttribute="centerX" secondItem="CxN-uR-GAT" secondAttribute="centerX" id="qg8-zK-jtj"/>
-                            <constraint firstItem="W2O-B4-CLC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8cU-ao-WJR" secondAttribute="trailing" constant="238" id="r6A-m9-CQe"/>
-                            <constraint firstItem="CxN-uR-GAT" firstAttribute="trailing" secondItem="W2O-B4-CLC" secondAttribute="trailing" constant="20" id="wCq-wS-lfs"/>
-                            <constraint firstItem="8cU-ao-WJR" firstAttribute="centerY" secondItem="W2O-B4-CLC" secondAttribute="centerY" id="zMi-pR-mH8"/>
+                            <constraint firstItem="DiU-Gb-yZZ" firstAttribute="centerX" secondItem="CxN-uR-GAT" secondAttribute="centerX" id="JXJ-GI-n9X"/>
+                            <constraint firstAttribute="bottom" secondItem="DiU-Gb-yZZ" secondAttribute="bottom" id="VQl-We-kDO"/>
+                            <constraint firstItem="DiU-Gb-yZZ" firstAttribute="width" secondItem="Agy-fw-WWI" secondAttribute="width" id="WKn-9b-89D"/>
+                            <constraint firstItem="DiU-Gb-yZZ" firstAttribute="height" secondItem="Agy-fw-WWI" secondAttribute="height" multiplier="0.4" id="o3S-Yc-UMm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2iM-xp-NRy"/>
                     <connections>
-                        <outlet property="collectionView" destination="x5h-qc-3bo" id="bXa-dG-DEr"/>
+                        <outlet property="collectionView" destination="MIG-OY-Hv0" id="epU-gP-GhC"/>
+                        <outlet property="containerView" destination="DiU-Gb-yZZ" id="r66-Mz-WEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgB-Ml-XMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
