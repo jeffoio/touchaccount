@@ -13,7 +13,7 @@ class BankViewController: UIViewController, UICollectionViewDelegate {
     }
     @IBOutlet weak var containerView: UIView!
     var dataSource: UICollectionViewDiffableDataSource<Section, BankApp>!
-    var possibleBankApp: [BankApp] = [.kakaobank,.supertoss,.kbBank, .sbankmoasign , .kbbiz, .wooriwonbiz]
+    var possibleBankApp: [BankApp] = []
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class BankViewController: UIViewController, UICollectionViewDelegate {
         self.containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         collectionView.delegate = self
         collectionView.collectionViewLayout = configureLayout()
-        //checkPossibleBankApp()
+        checkPossibleBankApp()
         configureDataSource()
     }
     

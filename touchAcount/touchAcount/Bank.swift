@@ -33,9 +33,9 @@ enum Bank: String, CaseIterable {
 
 
 enum BankApp: String, CaseIterable {
-    case kakaopay = "카카오페이"
     case kakaobank = "카카오뱅크"
     case supertoss = "토스"
+    case kakaopay = "카카오페이"
     case kbBank = "KB스타뱅킹"
     case liivbank = "리브"
     case liivtalk = "리브똑똑"
@@ -43,7 +43,7 @@ enum BankApp: String, CaseIterable {
     case NHCOK = "NH콕뱅크"
     case NHAllOneBank = "NH올원뱅크"
     case ionebank = "IBK기업은행"
-    case sbankmoasign = "신한 쏠(SOL)"
+    case sbank = "신한 쏠(SOL)"
     case smartkdb = "스마트KDB"
     case NewSmartPib = "우리 WON 뱅킹"
     case SmartBank2WIB = "위비뱅크"

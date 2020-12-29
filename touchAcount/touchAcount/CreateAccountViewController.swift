@@ -182,13 +182,13 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
             barAccessory.setItems([space, nextButton], animated: false)
             cell.textField.inputAccessoryView = barAccessory
             cell.textField.keyboardType = .numberPad
-            cell.textField.placeholder = "숫자만 입력해주세요"
+            cell.textField.placeholder = "필수) 숫자만 입력해주세요"
             cell.textField.text = newAccount.number
         case 2:
             let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nameDone))
             barAccessory.setItems([space, nextButton], animated: false)
             cell.textField.inputAccessoryView = barAccessory
-            cell.textField.placeholder = "받으실분 성함을 입력해주세요"
+            cell.textField.placeholder = "필수) 받으실분 성함을 입력해주세요"
             cell.textField.text = newAccount.holder
         case 3:
             let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(infoDone))
